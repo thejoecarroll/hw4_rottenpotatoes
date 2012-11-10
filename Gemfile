@@ -12,6 +12,7 @@ group :development do
   gem 'debugger'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'rspec-rails'
 end
 
 group :test do

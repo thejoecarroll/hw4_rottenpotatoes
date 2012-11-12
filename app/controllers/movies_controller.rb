@@ -64,4 +64,14 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def find_movies_with_same_director
+     @current_movie = Movie.find_by_id(params[:id])
+     @director = @current_movie.director
+     if @director.nil?
+       redirect_to movies_path, :notice => "'#{@current_movie.title}' has no director info"
+     else
+       @movies = Movie.find_all_by_director(@director)
+     end
+  end
+
 end

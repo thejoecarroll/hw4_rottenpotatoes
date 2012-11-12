@@ -10,8 +10,13 @@ Rottenpotatoes::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
+  # find movies with same director
+  get 'movies/:id/director/movies' => 'movies#find_movies_with_same_director', :as => :movies_with_same_director
+
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  # CRUD
   resources :movies
 
   # Sample resource route with options:
@@ -50,6 +55,8 @@ Rottenpotatoes::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+
+  root :to => 'movies#index'
 
   # See how all your routes lay out with "rake routes"
 
